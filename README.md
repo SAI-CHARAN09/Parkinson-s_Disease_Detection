@@ -1,84 +1,107 @@
-Parkinson's Disease Detection 🧠
-This project aims to detect Parkinson's Disease using machine learning models trained on biomedical voice measurements. The goal is to support early diagnosis through data-driven analysis and classification.
+🧠 Parkinson's Disease Detection using Machine Learning
 
-📌 Project Overview
-Parkinson's Disease is a progressive neurological disorder that affects movement and speech. Early detection is crucial for effective management. This notebook leverages supervised machine learning to classify individuals as either healthy or affected based on vocal features.
+This repository presents a machine learning approach for the early detection of Parkinson’s Disease using biomedical voice features. The project demonstrates end-to-end steps including data preprocessing, model training, evaluation, and comparison across various classification algorithms.
+
+📌 Problem Statement
+
+Parkinson's Disease is a progressive neurological disorder that impacts movement and speech. Early diagnosis can significantly improve patient outcomes. This project leverages supervised learning techniques to classify individuals as healthy or affected based on voice-related biomedical measurements.
 
 📂 Dataset
+
 Source: UCI Machine Learning Repository – Parkinson's Dataset
 
-Instances: 195
+Samples: 195
 
-Features: 22 (including biomedical voice measurements and one target column status)
+Features: 23 + 1 target label (status)
 
-Feature	Description
-MDVP columns	Various voice frequency measurements
-PPE, DFA	Measures of signal noise and complexity
-status	Target label (1 = Parkinson's, 0 = Healthy)
+Target Column:
 
-⚙️ Workflow
-Data Preprocessing
+1 = Parkinson’s Positive
 
-Removed irrelevant columns (name)
+0 = Healthy
 
-Normalized features using StandardScaler
+🧪 Project Workflow
 
-Exploratory Data Analysis (EDA)
+1. Import Libraries
 
-Visualized class distribution
+NumPy, Pandas, scikit-learn for data handling and model building
 
-Checked for correlations among features
+2. Data Exploration & Preprocessing
 
-Model Training
+Loaded dataset using pandas
 
-Logistic Regression
+Validated data integrity (no nulls)
 
-Accuracy score calculated on both training and testing sets
+Explored structure with .info() and .describe()
 
-Prediction System
+Extracted features (X) and label (y)
 
-Developed a real-time prediction function to test with new inputs
+Standardized features using StandardScaler
 
-📊 Results
-Model Used: Logistic Regression
+3. Train-Test Split
 
-Training Accuracy: ~85%
+Split dataset into 65% training and 35% testing
 
-Testing Accuracy: ~84%
+Used train_test_split from sklearn.model_selection
 
-Performs well on small-scale data with minimal overfitting.
+4. Model Training & Evaluation
+| Model                     | Training Accuracy | Test Accuracy |
+| ------------------------- | ----------------- | ------------- |
+| Support Vector Machine    | 92.06%            | 88.41%        |
+| Logistic Regression       | 87.30%            | 76.81%        |
+| K-Nearest Neighbors (KNN) | 96.83%            | 91.30%        |
+| Decision Tree Classifier  | 100%              | 76.81%        |
+5. Metrics Used
 
-🚀 How to Use
-Run the notebook in Google Colab or Jupyter:
+Accuracy
 
-bash
-Copy
-Edit
-pip install pandas numpy scikit-learn matplotlib seaborn
-python
-Copy
-Edit
-# Upload the notebook and run all cells sequentially
-To test with your own data, use the input array structure specified in the prediction cell.
+Confusion Matrix
 
-📎 Dependencies
-Python 3.x
+Precision, Recall, F1-Score
 
-NumPy
+✅ Key Findings
 
-Pandas
+KNN outperformed other models with 91.30% test accuracy
 
-scikit-learn
+SVM showed robust generalization with 88.41% accuracy
 
-Matplotlib
+Decision Tree overfitted with perfect training accuracy but dropped in testing
 
-Seaborn
+Logistic Regression was consistent but less precise on the healthy class (0)
 
-📬 Contact
-For questions or contributions:
+🚀 How to Run This Project
 
-Charan Vennu
-Email: [vennusaicharan09@gmail.com]
+Clone this repository or open in Google Colab
 
-LinkedIn: [https://www.linkedin.com/in/vennu-sai-charan-361039285/]
+Ensure the dataset parkinsons data.csv is available in your working directory
 
+Run all cells sequentially to see preprocessing, training, and evaluation in action
+
+🛠️ Technologies Used
+
+Python 3.9+
+
+pandas
+
+numpy
+
+scikit-learn (SVM, KNN, Logistic Regression, Decision Tree, preprocessing, metrics)
+
+🔮 Future Enhancements
+
+Apply PCA or other dimensionality reduction techniques
+
+Explore ensemble methods like Random Forest, XGBoost, or Gradient Boosting
+
+Integrate k-fold cross-validation for robust performance estimation
+
+👤 Author
+
+Vennu Sai Charan
+Machine Learning Enthusiast | Open to Collaboration
+📧 Email: vennusaicharan09@gmail.com
+🔗 LinkedIn Profile: https://www.linkedin.com/in/vennu-sai-charan-361039285/
+
+📄 License
+
+This project is intended for educational and research purposes. For commercial use, please contact the author.
